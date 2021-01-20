@@ -2,6 +2,14 @@
 
 Per the below documentation, system or application administrators may want to monitor the "available" memory instead of total "used" or "free" memory. This extension uses the ``` free -m ``` command to send the available memory to the AppDynamics controller to be monitored as a metric.
 
+Example:
+```
+# free -m
+              total        used        free      shared  buff/cache   available
+Mem:            917         354          88           1         473         412
+Swap:             0           0           0
+```
+
 https://www.redhat.com/sysadmin/dissecting-free-command
 
 https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/tuning_and_optimizing_red_hat_enterprise_linux_for_oracle_9i_and_10g_databases/chap-oracle_9i_and_10g_tuning_guide-memory_usage_and_page_cache
