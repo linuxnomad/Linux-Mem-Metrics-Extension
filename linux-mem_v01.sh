@@ -11,8 +11,7 @@
 # https://unix.stackexchange.com/questions/68526/get-separate-used-memory-info-from-free-m-command
 #
 #--------------------------------------------------------------------------------------------------#
-# Echo the metric hierarchy notifying the Controller where the metric should appear in the 
-# metric tree while adding in the variables for the parsed JSON file using jq filtering
+# Echo the metric hierarchy notifying the Controller where the metric should appear in metric tree
 #--------------------------------------------------------------------------------------------------#
 #
 lixmemtotal=`awk '/^Mem/ {print $2}' <(free -m)`
@@ -22,17 +21,17 @@ lixmemshared=`awk '/^Mem/ {print $5}' <(free -m)`
 lixmembc=`awk '/^Mem/ {print $6}' <(free -m)`
 lixmemavail=`awk '/^Mem/ {print $7}' <(free -m)`
 #
-# TableInstanceId_Avgerror
+# Free Memory - Total
 echo "name=Custom Metrics|Linux-Memory|Total (MB), value="$lixmemtotal
-# TableInstanceId_Comerror
+# Free Memory - Used
 echo "name=Custom Metrics|Linux-Memory|Used (Mb), value="$lixmemused
-# TableInstanceId_Syserror
+# Free Memory - Free
 echo "name=Custom Metrics|Linux-Memory|Free (MB), value="$lixmemfree
-# TableInstanceId_Readcu
+# Free Memory - Shared
 echo "name=Custom Metrics|Linux-Memory|Shared (MB), value="$lixmemshared
-# TableInstanceId_Writecu
+# Free Memory - Active/Cache
 echo "name=Custom Metrics|Linux-Memory|buff/cache (MB), value="$lixmembc
-# TableInstanceId_ReadLatency
+# Free Memory - Available
 echo "name=Custom Metrics|Linux-Memory|Available (MB), value="$lixmemavail
 #
 #--------------------------------------------------------------------------------------------------#
